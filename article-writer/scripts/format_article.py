@@ -7,8 +7,15 @@ Usage: python format_article.py --article article.md --platform wechat --theme r
 """
 
 import argparse
+import io
 import sys
 from pathlib import Path
+
+# 设置标准输出编码为UTF-8 (Windows兼容)
+# 必须在导入 mdnice 之前执行，否则会遇到 emoji 输出的 GBK 编码错误
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 
 def format_article(article_path: str, platform: str = "wechat",
