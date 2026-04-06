@@ -20,20 +20,28 @@ This skill helps you create compelling introduction documents that explain what 
 
 ## Template Structure
 
-Always generate introductions using this 7-section structure:
+Always generate introductions using this 9-section structure:
 
-### 01. Skill Card (技能名片)
+**文档标题格式**: `# 📊 SKILL 介绍：skill-name（中文名称）`
+
+> 选择与技能主题相关的 emoji：📊 图表、📘 论文、🔧 工具、🤖 AI、📝 文档、🔍 搜索
+
+### 01. 技能名片 (At a Glance)
 
 Create a quick-reference summary:
 
-| Field | Content |
-|-------|---------|
+| 字段 | 内容 |
+|:-----|:-----|
 | **技能名称** | `Skill_Name` |
 | **一句话定义** | [30-second elevator pitch describing core value] |
 | **适用人群** | [Target user personas] |
-| **技能评级** | ⭐⭐⭐⭐⭐ (rate based on complexity, accuracy, efficiency) |
+| **技能评级** | ⭐⭐⭐⭐⭐（复杂度：低/中/高 | 准确度：高 | 实用性：极高） |
 
-### 02. Pain Points Comparison (痛点对标)
+**注意**:
+- 标题使用 emoji + 双语格式：`# 📊 SKILL 介绍：skill-name（中文名称）`
+- 选择与技能主题相关的 emoji（如 📊 图表、📘 论文、🔧 工具、🤖 AI）
+
+### 02. 痛点对标 (Why we need it)
 
 Create a before/after comparison table:
 
@@ -47,8 +55,9 @@ Create a before/after comparison table:
 - List 3-5 concrete pain points
 - Make comparisons specific and measurable
 - Use time savings, error reduction, or quality improvements
+- 章节标题格式：`## 02. 痛点对标 (Why we need it)`
 
-### 03. Core Logic & Workflow (核心逻辑与工作流)
+### 03. 核心逻辑与工作流 (How it works)
 
 Explain how the skill works internally:
 
@@ -68,28 +77,50 @@ graph LR
 3. **行动层 (Action)**: External tools/APIs called
 4. **反馈层 (Feedback)**: How results are refined
 
-### 04. Interface Specification (接口规范与参数)
+**Guidelines:**
+- 章节标题格式：`## 03. 核心逻辑与工作流 (How it works)`
+- 必须包含 Mermaid 工作流图
+- 使用四层架构模板解释内部机制
+
+### 04. 接口规范与参数 (The Specification)
 
 Document inputs and outputs:
 
-**Inputs:**
-- `parameter_name`: Description (Required/Optional)
+**输入 (Inputs):**
 
-**Outputs:**
-- `output_name`: Description and format
+| 参数 | 类型 | 必填 | 说明 |
+|:-----|:-----|:-----|:-----|
+| `param_name` | string | ✅/❌ | 参数描述 |
+
+**输出 (Outputs):**
+
+| 字段 | 类型 | 说明 |
+|:-----|:-----|:-----|
+| `output_name` | file/string | 输出描述 |
 
 **Example:**
 ```markdown
 **输入 (Inputs):**
-- `document_url`: File URL (Required)
-- `target_metrics`: Metrics to extract (Optional)
+
+| 参数 | 类型 | 必填 | 说明 |
+|:-----|:-----|:-----|:-----|
+| `document_url` | string | ✅ | 文档 URL |
+| `target_metrics` | list | ❌ | 需提取的指标 |
 
 **输出 (Outputs):**
-- `summary_report`: Text summary
-- `data_chart`: Chart object
+
+| 字段 | 类型 | 说明 |
+|:-----|:-----|:-----|
+| `summary_report` | file | 分析报告文件 |
+| `data_chart` | image | 数据图表 |
 ```
 
-### 05. Real-World Case Study (真实用例展示)
+**Guidelines:**
+- 章节标题格式：`## 04. 接口规范与参数 (The Specification)`
+- 使用表格格式而非列表，更清晰
+- 必填用 ✅，可选用 ❌
+
+### 05. 真实用例展示 (Case Study)
 
 Show a complete example:
 
@@ -106,7 +137,12 @@ Show a complete example:
 > **分析结论**: [Key finding from the output]
 ```
 
-### 06. Quick Start Guide (快速开始)
+**Guidelines:**
+- 章节标题格式：`## 05. 真实用例展示 (Case Study)`
+- 必须包含完整的执行过程描述
+- 输出展示使用引用块 `>` 格式
+
+### 06. 快速开始 (Quick Start)
 
 Provide two usage methods:
 
@@ -115,65 +151,106 @@ Provide two usage methods:
 直接发送指令: "调用 [技能名]，参数为：[具体对象]"
 ```
 
-**方式二：API/代码集成**
-```python
-# 示例代码块
-agent.use_skill("Skill_Name", {
-    "param1": "value1",
-    "mode": "operation_mode"
-})
+**方式二：触发词**
+```
+以下表述会自动触发技能：
+- "[关键词1]"、"[关键词2]"
+- 分享特定类型的链接或文件
 ```
 
-### 07. Limitations & Pitfalls (局限性与避坑指南)
+**方式三：指定配置参数**
+```
+"创建 [配置] 的 [图表类型]，展示 [具体内容]"
+```
+
+**Guidelines:**
+- 章节标题格式：`## 06. 快速开始 (Quick Start)`
+- 提供多种使用方式，降低上手门槛
+- 包含触发词说明，帮助用户了解自动触发条件
+
+### 07. 局限性与避坑指南 (Boundary)
 
 Be honest about boundaries:
 
 ```markdown
 **不支持**:
-- [Limitation 1]
-- [Limitation 2]
+- ❌ [Limitation 1]
+- ❌ [Limitation 2]
 
 **注意**:
-- [Edge case warning 1]
-- [Edge case warning 2]
+- ⚠️ [Edge case warning 1]
+- ⚠️ [Edge case warning 2]
+
+**常见问题**:
+
+| 问题 | 解决方案 |
+|:-----|:---------|
+| [常见问题 1] | [解决方案 1] |
+| [常见问题 2] | [解决方案 2] |
 ```
 
-### 08. Repository & Resources (仓库与资源)
+**Guidelines:**
+- 章节标题格式：`## 07. 局限性与避坑指南 (Boundary)`
+- 不支持项用 ❌，注意事项用 ⚠️
+- 添加常见问题表格，提供故障排除指引
+
+### 08. 仓库与资源 (Repository & Resources)
 
 Always include the skill's source location:
 
 ```markdown
-## 📦 获取与资源
-
-**仓库地址**: [GitHub 仓库链接或本地路径]
-**技能目录**: `[skill-name]/`
+**GitHub 地址**: [GitHub 仓库链接]
+**本地路径**: `[local-path]/`
 
 **相关文件**:
-- `SKILL.md` - 主技能文件
-- `scripts/` - 辅助脚本（如有）
-- `references/` - 参考文档（如有）
+
+| 文件 | 说明 |
+|:-----|:-----|
+| `SKILL.md` | 主技能文件 |
+| `scripts/` | 辅助脚本（如有） |
+| `references/` | 参考文档（如有） |
 ```
 
-**Example:**
+**Guidelines:**
+- 章节标题格式：`## 08. 仓库与资源 (Repository & Resources)`
+- 使用表格列出相关文件
+- 同时提供 GitHub 地址和本地路径
+
+### 09. 总结 (Summary)
+
+End with a memorable summary:
+
 ```markdown
-## 📦 获取与资源
+## 总结
 
-**仓库地址**: https://github.com/anthropics/skills/tree/main/skill-creator
-**技能目录**: `skill-creator/`
+**[skill-name] 是给"[目标用户]"用的[技能类型]** —— [核心定位，不是为了 X，是为了 Y]。
 
-**相关文件**:
-- `SKILL.md` - 主技能文件
-- `scripts/run_eval.py` - 评估运行脚本
-- `scripts/package_skill.py` - 打包脚本
-- `agents/` - 子代理指令
+核心价值：
+- 🎯 **[价值点1]**：[具体说明]
+- 🧠 **[价值点2]**：[具体说明]
+- 🔧 **[价值点3]**：[具体说明]
+- 📝 **[价值点4]**：[具体说明]
+
+**一句话：[核心 Slogan，让人记住这个技能]**
 ```
+
+**Guidelines:**
+- 必须包含一句话定位
+- 核心价值用 emoji + 粗体标题 + 说明的格式
+- Slogan 要简洁有力，突出差异化价值
+
+---
 
 ## Writing Principles
 
-1. **可视化优先**: Use flowcharts/diagrams instead of long text
-2. **结果导向**: Focus on outputs and value, not implementation details
-3. **场景化**: Provide concrete, relatable scenarios
-4. **诚实透明**: Acknowledge limitations upfront
+1. **标题格式统一**: 所有章节使用双语格式 `## 01. 中文名 (English Name)`
+2. **表格左对齐**: 使用 `|:-----|:-----|` 而非 `|-------|---------|`
+3. **可视化优先**: 用 Mermaid 图替代长文本说明
+4. **结果导向**: 聚焦输出和价值，而非实现细节
+5. **场景化**: 提供具体、可关联的使用场景
+6. **诚实透明**: 前置说明局限性和边界
+7. **Emoji 点缀**: 标题和重点处适度使用，但不滥用
+8. **中文优先**: 面向中文用户，中文在前，英文补充
 
 ## Output Format
 
@@ -188,9 +265,10 @@ Generate output in Markdown format with:
 
 1. **Analyze the target skill** - Read its SKILL.md to understand purpose and workflow
 2. **Extract key information** - Name, description, inputs, outputs, workflow
-3. **Generate each section** - Follow the 7-section template
-4. **Add visual elements** - Mermaid diagrams, tables, formatting
-5. **Review and refine** - Ensure clarity and completeness
+3. **Generate each section** - Follow the 9-section template
+4. **Add visual elements** - Mermaid diagrams, tables, emoji
+5. **Format consistently** - 双语标题、左对齐表格、引用块输出
+6. **Review and refine** - Ensure clarity and completeness
 
 ## Example Invocation
 
@@ -202,6 +280,6 @@ When asked to generate an introduction for a skill:
 执行:
 1. 读取 skill-creator/SKILL.md
 2. 提取: name, description, workflow, inputs, outputs
-3. 按模板生成 7 个部分
+3. 按模板生成 9 个部分
 4. 输出完整的 Markdown 文档
 ```
