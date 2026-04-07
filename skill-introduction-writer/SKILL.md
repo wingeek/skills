@@ -20,11 +20,29 @@ This skill helps you create compelling introduction documents that explain what 
 
 ## Template Structure
 
-Always generate introductions using this 9-section structure:
+Always generate introductions using this **10-section** structure:
 
-**文档标题格式**: `# 📊 SKILL 介绍：skill-name（中文名称）`
+| 章节 | 标题 | 核心内容 |
+|:-----|:-----|:---------|
+| 01 | 技能名片 | 名称、定义、适用人群、评级 |
+| 02 | 痛点对标 | Before/After 对比表 |
+| 03 | 核心逻辑与工作流 | Mermaid 图 + 四层架构 |
+| 04 | 接口规范与参数 | 输入输出表格 |
+| 05 | 真实用例展示 | 完整执行过程 + 代码示例 |
+| 06 | 快速开始 | 3 种使用方式 |
+| 07 | 局限性与避坑指南 | 不支持项 + 常见问题 |
+| 08 | Skill 构建赏析 | **新增** - 从构建者角度分析设计模式 |
+| 09 | 仓库与资源 | GitHub + 本地路径 + 文件列表 |
+| 10 | 总结 | 一句话定位 + 核心价值 + Slogan |
 
-> 选择与技能主题相关的 emoji：📊 图表、📘 论文、🔧 工具、🤖 AI、📝 文档、🔍 搜索
+**文档标题格式**: `# 🎬 SKILL 介绍：Skill-Name —— [拟人化Slogan]`
+
+> 标题设计原则：
+> - 使用拟人化表达，如"代码即视频的魔法师"、"你的私人文档管家"
+> - 突出核心特性关键词（如"代码"、"自动化"、"智能"）
+> - 选择与技能主题相关的 emoji：🎬 视频、📊 图表、📘 论文、🔧 工具、🤖 AI、📝 文档
+>
+> **示例**：`# 🎬 SKILL 介绍：Remotion —— 代码即视频的魔法师`
 
 ### 01. 技能名片 (At a Glance)
 
@@ -194,7 +212,51 @@ Be honest about boundaries:
 - 不支持项用 ❌，注意事项用 ⚠️
 - 添加常见问题表格，提供故障排除指引
 
-### 08. 仓库与资源 (Repository & Resources)
+### 08. Skill 构建赏析 (Build Pattern)
+
+Analyze the skill from a **builder's perspective** - what makes this skill well-constructed:
+
+**Template:**
+```markdown
+这个 Skill 在构建上有几个值得借鉴的设计模式：
+
+### 📚 索引+规则分离架构
+
+[Describe the file structure if the skill uses index + rules pattern]
+
+**优点**：
+- [Benefit 1]
+- [Benefit 2]
+
+### 🏷️ 元数据驱动检索
+
+[Describe frontmatter/metadata pattern if applicable]
+
+### ⚡ 代码即文档
+
+[Describe how code examples are embedded in rules]
+
+### 🎯 职责边界清晰
+
+| 模块 | 职责 | 不负责 |
+|:-----|:-----|:-------|
+| `SKILL.md` | [职责] | [不负责] |
+| `rules/*.md` | [职责] | [不负责] |
+
+### 💡 可借鉴的构建模式
+
+1. **[模式名称]**：[描述]
+2. **[模式名称]**：[描述]
+3. **[模式名称]**：[描述]
+```
+
+**Guidelines:**
+- 章节标题格式：`## 08. Skill 构建赏析 (Build Pattern)`
+- 从 skill 构建者角度分析设计亮点
+- 提取可复用的构建模式
+- 使用表格对比职责边界
+
+### 09. 仓库与资源 (Repository & Resources)
 
 Always include the skill's source location:
 
@@ -212,11 +274,11 @@ Always include the skill's source location:
 ```
 
 **Guidelines:**
-- 章节标题格式：`## 08. 仓库与资源 (Repository & Resources)`
+- 章节标题格式：`## 09. 仓库与资源 (Repository & Resources)`
 - 使用表格列出相关文件
 - 同时提供 GitHub 地址和本地路径
 
-### 09. 总结 (Summary)
+### 10. 总结 (Summary)
 
 End with a memorable summary:
 
