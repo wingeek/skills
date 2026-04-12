@@ -257,6 +257,29 @@ Target audience: [team/public/personal]
 
 ## 附录：关键提示词记录
 [记录有效的提示词示例]
+
+## 附录：Harness 工程实践记录文件位置
+
+列出项目中 Harness 产物的实际文件路径，方便读者回溯原始素材。必须包含：
+
+```
+项目路径: [项目根目录]
+
+### CLAUDE.md
+[path/to/CLAUDE.md]
+
+### Memory 文件
+[path/to/.claude/memory/] 目录树，标注每条 Memory 的类型（feedback/project/reference）
+
+### Plan 文件
+[path/to/.claude/plans/] 目录树
+
+### Task 文件
+[path/to/.claude/tasks/] 目录树，标注每个 Task 的 Phase 描述和状态
+```
+
+**Why:** 读者看完分析后常想查看原始 Memory 或 Plan 文件来验证结论或获取更多细节；文件位置让分析报告可追溯到一手素材。
+**How to apply:** 在附录末尾、评分之前添加此章节，用目录树格式展示，每行附简短说明。
 ```
 
 ## Analysis Process
@@ -295,6 +318,7 @@ Target audience: [team/public/personal]
 - [ ] References Harness-specific features used
 - [ ] Provides recommendations for team adoption
 - [ ] Extracts reusable patterns, not just project-specific observations
+- [ ] Includes Harness artifact file locations appendix (CLAUDE.md, Memory, Plans, Tasks)
 
 ## Red Flags - STOP
 
@@ -309,6 +333,7 @@ Target audience: [team/public/personal]
 - Listing all memories individually instead of extracting cross-cutting patterns
 - Missing analysis of memory write triggers (when/why memories were created)
 - Skipping CLAUDE.md when it exists in the project
+- Missing Harness artifact file locations appendix (when .claude/ directory exists in the project)
 
 **If you catch yourself doing these, refocus on AI collaboration patterns.**
 
